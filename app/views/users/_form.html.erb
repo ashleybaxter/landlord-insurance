@@ -1,0 +1,17 @@
+<%= form_for User.new do |f| %>
+  <fieldset>
+	<%= f.label :title, "Title:" %>
+	<%= f.select :title, ['Miss', 'Mr', 'Mrs'] %>
+  </fieldset>
+  <fieldset>
+  	<%= f.label :surname, "Surname:" %>
+  	<%= f.text_field :surname %>
+  </fieldset>
+  <fieldset>
+  	<%= f.label :phone_number, "Phone No:" %>
+  	<%= f.text_field :phone_number, :placeholder => "Don't worry, it can be fake!" %>
+  </fieldset>
+  <%= f.submit "Purchase Policy", :class => "button" %>
+<% end %>
+
+<p class="small-print">Quotes are valid for 30 days and include Insurance Premium Tax where applicable.</p>

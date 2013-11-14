@@ -1,0 +1,16 @@
+.bundle
+log/*.log
+tmp
+test
+config
+db
+doc
+lib
+log
+public
+script
+vendor
+Gemfile
+Gemfile.lock
+Rakefile
+config.ru

@@ -1,0 +1,92 @@
+<div class="grid">
+  <div class="unit two-of-three">
+	<div class="quote">
+	  <h2>Calculate Your Quote</h2>
+			
+  <%= form_for(@quote, :validate => :quote_validators, :remote => true) do |f| %>
+  <%= render "shared/error_messages", :target => @quote %>
+
+  <fieldset>
+  <div class="half-field">
+    <%= f.label :insured_postcode, "Insured Postcode:" %>
+    <%= f.text_field :postcode %>
+  </div>
+  </fieldset>
+
+  <fieldset class="theNumbers">
+  <div class="half-field currency">
+	<%= f.label :building_sum, "Building Sum:" %>
+	<%= image_tag_with_at2x("pound.png", :alt => "Content Sum", :class => "currency")%>
+	<%= f.number_field :building_sum, {class: 'slider', min: Quote.validators_on(:building_sum)[0].options[:greater_than], max: Quote.validators_on(:building_sum)[0].options[:less_than_or_equal_to], step: '1000', value: @quote.building_sum} %>
+  </div>
+  <div class="half-field">
+	<%= f.label :building_excess, "Building Excess:" %>
+	<%= image_tag_with_at2x("pound.png", :alt => "Content Sum", :class => "currency")%>
+    <%= f.select :building_excess, ['100', '250', '500', '1000'] %>
+  </div>
+  <div class="half-field currency">
+	<%= f.label :content_sum, "Content Sum:" %>
+	<%= image_tag_with_at2x("pound.png", :alt => "Content Sum", :class => "currency")%>
+	<%= f.number_field :content_sum, {class: 'slider', min: Quote.validators_on(:content_sum)[0].options[:greater_than], max: Quote.validators_on(:content_sum)[0].options[:less_than_or_equal_to], step: '1000', value: @quote.content_sum} %>
+  </div>
+  <div class="half-field">
+	<%= f.label :content_excess, "Content Excess:" %>
+	<%= image_tag_with_at2x("pound.png", :alt => "Content Sum", :class => "currency")%>
+    <%= f.select :content_excess, ['100', '250', '500', '1000'] %>
+  </div>
+  </fieldset>
+  <fieldset class="people">
+  <div class="half-field">
+	<%= f.label :employers_liability, "Employers Liability:" %>
+	<%= f.select :employers_liability, ['Not Insured', 'Insured - ERN Available', 'Insured - ERN Exempt'] %>
+  </div>
+  <div class="half-field">
+	<%= f.label :proposed_tenants, "Proposed Tenants:" %>
+  	<%= f.select :proposed_tenants, ['Employed professionals', 'Students', 'DSS', 'UK holiday home', 'Unoccupied property', 'Asylum Seekers'] %>
+  </div>
+  </fieldset>
+  <fieldset class="property">
+  <div class="half-field">
+	<%= f.label :property_type, "Property Type:", :class => "property-label" %>
+	<%= f.select :property_type, options_for_select([["House", {:'data-icon' => 'house.png'}], ["Single Self Contained Flat", {:'data-icon' => 'single-self-contained-flat.png'}],["Townhouse", {:'data-icon' => 'townhouse.png'}],["Bedsit", {:'data-icon' => 'bedsit.png'}],["Purpose Built Flat", {:'data-icon' => 'purpose-built-flat.png'}], "Converted Barn", "Commercial Conversion", "Flat Above Commercial", "Maisonette", "Other"]) %>
+    <span class="select-another">Or select another type:</span>
+  </div>
+  </fieldset>
+  <fieldset class="variables">
+  <div class="half-field">
+	<%= f.label :property_age, "Property Age:" %>
+  	<%= f.select :property_age, [ 'Under 200 Years', '200 – 300 Years', 'Over 300 Years'] %>
+  </div>
+  <div class="half-field">
+	<%= f.label :roof_type, "Roof Type:" %>
+  	<%= f.select :roof_type, ['0% flat', 'Flat roof 100% concrete', 'Flat roof 100% felt on timber', 'Flat roof over 50%', 'Flat roof up to 25%', 'Flat roof up to 50%'] %>
+  </div>
+  <div class="half-field">
+	<%= f.label :roof_construction, "Roof Construction:" %>
+	<%= f.select :roof_construction, ['Standard construction', 'Asbestos', 'Asphalt', 'Concrete', 'Corrugated iron', 'Felt on timber', 'Fibreglass', 'Glass', 'Metal', 'Other', 'Plastic', 'Shingle', 'Slate', 'Stramit', 'Thatch - fibre', 'Thatch - reed', 'Tile', 'Timber', 'Turnerised', 'Woodwork construction'] %>
+  </div>
+  <div class="half-field">
+	<%= f.label :floor_construction, "Floor Construction:" %>
+	<%= f.select :floor_construction, ['Concrete', 'Wood and concrete', 'Other', 'Wood'] %>
+  </div>
+  <div class="half-field">
+	<%= f.label :architecture_type, "Architecture Type:" %>
+  	<%= f.select :architecture_type, ['Not listed', 'Grade I / Scottish A / NI A', 'Grade II / NI B+', 'Grade II / Scottish B / NI B1', 'Preservation order - Scottish C | Protected | NI B2'] %>
+  </div>
+  </fieldset>
+
+  <fieldset>
+	<%= link_to "Reset calculator", new_quote_path(@quote), :class => 'reset_button' %>	
+  	<%= f.submit "Get a Quote", :class => 'submit' %>
+  </fieldset>
+<% end %>
+  </div>
+</div>
+
+<div class="unit one-of-three">
+  <div class="premium-placeholder">
+	<h3>Your Premium</h3>
+  </div>
+</div>
+
+</div>

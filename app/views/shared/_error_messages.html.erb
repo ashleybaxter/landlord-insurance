@@ -1,0 +1,10 @@
+<% if @quote.errors.any? %>  
+  <div id="errorExplanation">  
+    <h4><%= pluralize(@quote.errors.count, "error") %> prohibited this quote from being calculated:</h4>  
+    <ul>  
+    <% @quote.errors.full_messages.each do |msg| %>  
+      <li><%= msg %></li>  
+    <% end %>  
+    </ul>  
+  </div>  
+<% end %>

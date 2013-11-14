@@ -1,0 +1,14 @@
+<div class="sidebar">
+  <h3>Your Premium</h3>
+	
+  <div class="premium-box">
+    <p class="premium-cost"><%= number_to_currency(@quote.premium_monthly, :unit => "£") %></p>
+    <p class="line-break payment-desc">10 monthly payments</p>
+    <p class="premium-cost line-break2"><%= number_to_currency(@quote.premium, :unit => "£") %></p>
+    <p class="payment-desc">Single payment</p>
+  </div>
+
+  <div class="sidebar-form">
+    <%= render 'users/form' %>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brokers Direct | Prototype Quote System</title>
+  <meta name="description" content="An insurance quote system that isn't stuck in the past">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <%= javascript_include_tag "html5shiv" %>
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+<body class="show">
+	
+<header class="site-header-wrap" id="page-top-anchor">
+  <div class="site-header layout-width cf">
+	<div class="container">
+	  <div class="grid">
+	    <%= link_to image_tag_with_at2x("bd-logo.png", :alt => "Brokers Direct"), "http://brokersdirect.co.uk", :class => "unit span-grid" %>
+	  </div>
+	</div>
+  </div>
+</header>
+
+<section class="home-intro">
+  <div class="home-intro-inner">
+    <div class="layout-width">
+	  <div class="grid-wrapper no-space">
+		<div class="one-whole intro-copy">
+<div class="container">
+  <div class="grid">
+	<div class="unit span-grid">
+      <h2>Too good to be true…</h2>
+      <p>Wouldn't it be nice if purchasing your insurance was <em>that</em> simple? Unfortunately, our sleek prototype is just a concept right now. We're working on it. In the meantime, subscribe for updates.</p>
+  <form action="http://brokersdirect.createsend.com/t/i/s/ithdj/" method="post">
+    <input id="fieldEmail" name="cm-ithdj-ithdj" type="email" placeholder="Enter your email" required />
+    <button type="submit" class="subscribe">Subscribe</button>
+  </form>
+    </div>
+  </div>
+</div>
+        </div> 
+      </div>
+   </div>
+</div>
+</section>
+
+</body>
+</html>

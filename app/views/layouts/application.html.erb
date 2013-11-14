@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brokers Direct | Prototype Quote System</title>
+  <meta name="description" content="An insurance quote system that isn't stuck in the past">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application", "icons" %>
+  <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+  <%= javascript_include_tag "html5shiv" %>
+  <![endif]-->
+
+  <!--[if lt IE 8]>
+  <%= stylesheet_link_tag "ie8" %>
+  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+<body>
+
+<div class="masthead">
+  <div class="container">
+    <div class="grid">
+	  <p class="unit span-grid">This is a prototype using dummy figures and will not generate a real insurance quote. Play with it and have fun. Yes, we said 'fun' and 'insurance' in the same paragraph.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="grid">	
+    <%= link_to image_tag_with_at2x("bd-logo.png", :alt => "Brokers Direct"), "http://brokersdirect.co.uk", :class => "unit span-grid header" %>
+  </div>
+
+<%= yield %>
+
+</div>
+</body>
+</html>
