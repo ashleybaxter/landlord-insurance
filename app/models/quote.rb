@@ -10,10 +10,7 @@ class Quote < ActiveRecord::Base
   validate :at_least_one_sum_insured
 
   def at_least_one_sum_insured
-   # if !(building_sum.blank? ^ content_sum.blank?)
-       #errors.add(:base, "Specify a charge or a payment, not both")
-     #end
-     errors.add(:base, 'A building and / or content sum must be selected. Both cannot be nil') if building_sum == 0 and content_sum == 0
+    errors.add(:base, 'A building and / or content sum must be selected. Both cannot be nil') if building_sum == 0 and content_sum == 0
   end
   
   
